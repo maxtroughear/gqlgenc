@@ -4,6 +4,8 @@
 
 This is Go library for building GraphQL client with [gqlgen](https://github.com/99designs/gqlgen)
 
+This library has been modified to use [pester](https://github.com/sethgrid/pester) as the http client for better resiliency. The original library can be found here [Yamashou/gqlgenc](https://github.com/Yamashou/gqlgenc)
+
 ## Motivation
 
 Now, if you build GraphQL api client for Go, have choice:
@@ -18,7 +20,7 @@ So I want to automatically generate types.
 ## Installation
 
 ```shell script
-go get -u github.com/Yamashou/gqlgenc
+go get -u github.com/maxtroughear/gqlgenc
 ```
 
 ## How to use
@@ -90,7 +92,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Yamashou/gqlgenc/clientgen"
+	"github.com/maxtroughear/gqlgenc/clientgen"
 
 	"github.com/99designs/gqlgen/api"
 	"github.com/99designs/gqlgen/codegen/config"
@@ -136,4 +138,4 @@ This client does not support subscription. If you need a subscription, please cr
 
 ### Pre-conditions
 
-[clientgen](https://github.com/Yamashou/gqlgenc/tree/master/clientgen) is created based on [modelgen](https://github.com/99designs/gqlgen/tree/master/plugin/modelgen). So if you don't have a modelgen, it may be a mysterious move.
+[clientgen](https://github.com/maxtroughear/gqlgenc/tree/master/clientgen) is created based on [modelgen](https://github.com/99designs/gqlgen/tree/master/plugin/modelgen). So if you don't have a modelgen, it may be a mysterious move.

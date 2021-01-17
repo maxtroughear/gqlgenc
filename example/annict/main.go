@@ -6,8 +6,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Yamashou/gqlgenc/client"
-	"github.com/Yamashou/gqlgenc/example/annict/gen"
+	"github.com/maxtroughear/gqlgenc/client"
+	"github.com/maxtroughear/gqlgenc/example/annict/gen"
+	"github.com/sethgrid/pester"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
 		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", key))
 	}
 
-	annictClient := NewAnnictClient(client.NewClient(http.DefaultClient, "https://api.annict.com/graphql", authHeader))
+	annictClient := NewAnnictClient(client.NewClient(pester.DefaultClient, "https://api.annict.com/graphql", authHeader))
 	ctx := context.Background()
 
 	getProfile, err := annictClient.GetProfile(ctx)

@@ -8,7 +8,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/Yamashou/gqlgenc/graphqljson"
+	"github.com/maxtroughear/gqlgenc/graphqljson"
+	"github.com/sethgrid/pester"
 	"github.com/vektah/gqlparser/v2/gqlerror"
 	"golang.org/x/xerrors"
 )
@@ -18,7 +19,7 @@ type HTTPRequestOption func(req *http.Request)
 
 // Client is the http client wrapper
 type Client struct {
-	Client             *http.Client
+	Client             *pester.Client
 	BaseURL            string
 	HTTPRequestOptions []HTTPRequestOption
 }
@@ -31,7 +32,7 @@ type Request struct {
 }
 
 // NewClient creates a new http client wrapper
-func NewClient(client *http.Client, baseURL string, options ...HTTPRequestOption) *Client {
+func NewClient(client *pester.Client, baseURL string, options ...HTTPRequestOption) *Client {
 	return &Client{
 		Client:             client,
 		BaseURL:            baseURL,
