@@ -253,7 +253,7 @@ func (c *Config) loadRemoteSchema(ctx context.Context) (*ast.Schema, error) {
 			req.Header.Set(key, value)
 		}
 	}
-	gqlclient := client.NewClient(pester.DefaultClient, c.Endpoint.URL, addHeader)
+	gqlclient := client.NewClient(pester.New(), c.Endpoint.URL, addHeader)
 
 	var res introspection.Query
 	if err := gqlclient.Post(ctx, "Query", introspection.Introspection, &res, nil); err != nil {
